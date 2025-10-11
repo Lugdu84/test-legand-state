@@ -5,7 +5,7 @@ import { add } from '@lib/count';
 import { Counter } from '@components/TextCount';
 import { MinusButton } from '@components/MinusButton';
 
-export default function CounterPage() {
+export default function CounterScreen() {
 	console.log('rerender ...');
 
 	return (
