@@ -2,7 +2,7 @@ import { observer } from '@legendapp/state/react';
 
 import { Pressable, StyleSheet } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { remove, isFirst } from '../count';
+import { remove, isFirst } from '@lib/count';
 
 export const MinusButton = observer(() => {
 	return (
