@@ -3,7 +3,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { add, remove } from './count';
 import { Counter } from './TextCount';
-import { MinusButton } from './components/MinusButton';
+import { MinusButton } from '@components/MinusButton';
 
 export default function App() {
 	console.log('rerender ...');
