@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { add, remove } from './count';
-import { Counter } from './TextCount';
+import { add } from './count';
+import { Counter } from '@components/TextCount';
 import { MinusButton } from '@components/MinusButton';
 
 export default function App() {

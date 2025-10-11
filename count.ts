@@ -11,3 +11,5 @@ export const remove = () => {
 	count$.set(count$.get() - 1);
 	console.log('Count after remove:', count$.get());
 };
+
+export const isFirst = () => count$.get() === 0;

@@ -2,17 +2,14 @@ import { observer } from '@legendapp/state/react';
 
 import { Pressable, StyleSheet } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { count$ } from '../count';
-import { remove } from '../count';
+import { remove, isFirst } from '../count';
 
 export const MinusButton = observer(() => {
-	const isDisabled = count$.get() === 0;
-
 	return (
 		<Pressable
-			style={[styles.button, isDisabled && styles.buttonDisabled]}
+			style={[styles.button, isFirst() && styles.buttonDisabled]}
 			onPress={remove}
-			disabled={isDisabled}>
+			disabled={isFirst()}>
 			<Ionicons
 				name="remove"
 				size={32}
