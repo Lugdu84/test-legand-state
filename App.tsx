@@ -3,6 +3,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { add, remove } from './count';
 import { Counter } from './TextCount';
+import { MinusButton } from './components/MinusButton';
 
 export default function App() {
 	console.log('rerender ...');
@@ -21,15 +22,7 @@ export default function App() {
 					/>
 				</Pressable>
 				<Counter />
-				<Pressable
-					style={styles.button}
-					onPress={remove}>
-					<Ionicons
-						name="remove"
-						size={32}
-						color="white"
-					/>
-				</Pressable>
+				<MinusButton />
 			</View>
 			<StatusBar style="auto" />
 		</View>
