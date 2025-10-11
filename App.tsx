@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { add, count$, remove } from './count';
+import { add, remove } from './count';
 import { Counter } from './TextCount';
 
 export default function App() {
@@ -20,8 +20,7 @@ export default function App() {
 						color="white"
 					/>
 				</Pressable>
-				{/* <Counter /> */}
-				<Text>{count$.get()}</Text>
+				<Counter />
 				<Pressable
 					style={styles.button}
 					onPress={remove}>
