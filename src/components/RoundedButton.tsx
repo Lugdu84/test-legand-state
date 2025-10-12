@@ -10,6 +10,7 @@ type Props = {
 };
 
 export default function RoundedButton({ onPress, iconName }: Props) {
+	console.log('RoundedButton render ...');
 	return (
 		<Pressable
 			style={styles.button}
