@@ -4,6 +4,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { add } from '@lib/count';
 import { Counter } from '@components/TextCount';
 import { MinusButton } from '@components/MinusButton';
+import RoundedButton from '@components/RoundedButton';
 
 export default function CounterScreen() {
 	console.log('rerender ...');
@@ -12,15 +13,10 @@ export default function CounterScreen() {
 		<View style={styles.container}>
 			<Text>Test du state !</Text>
 			<View style={styles.buttons}>
-				<Pressable
-					style={styles.button}
-					onPress={add}>
-					<Ionicons
-						name="add"
-						size={32}
-						color="white"
-					/>
-				</Pressable>
+				<RoundedButton
+					onPress={add}
+					iconName="add"
+				/>
 				<Counter />
 				<MinusButton />
 			</View>
