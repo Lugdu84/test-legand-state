@@ -8,7 +8,13 @@ export default function TextTotal() {
 
 	const totalWithGet = store$.total.get();
 
-	return <Text> Total : {total}</Text>;
+	return <Text style={styles.text}> Total : {total}</Text>;
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	text: {
+		fontSize: 20,
+		fontWeight: 'bold',
+		marginBottom: 10,
+	},
+});
