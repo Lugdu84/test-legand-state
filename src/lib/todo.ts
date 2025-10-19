@@ -1,4 +1,6 @@
 import { observable } from '@legendapp/state';
+import { syncObservable } from '@legendapp/state/sync';
+import { ObservablePersistMMKV } from '@legendapp/state/persist-plugins/mmkv';
 
 interface Todo {
 	id: number;
@@ -36,5 +38,12 @@ export const store$ = observable<Store>({
 	removeTodo: (id: number) => {},
 	reset: () => {
 		store$.todos.set([]);
+	},
+});
+
+syncObservable(store$, {
+	persist: {
+		name: 'todo-store',
+		plugin: ObservablePersistMMKV,
 	},
 });
