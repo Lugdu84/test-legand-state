@@ -1,14 +1,15 @@
 import { observable } from '@legendapp/state';
 import { syncObservable } from '@legendapp/state/sync';
 import { ObservablePersistMMKV } from '@legendapp/state/persist-plugins/mmkv';
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Todo {
-	id: number;
+	id: string;
 	text: string;
 	completed: boolean;
 }
 interface Store {
-	nextId: number;
 	todos: Todo[];
 	addTodo: (text: string) => void;
 	toggleTodo: (id: number) => void;
@@ -23,16 +24,17 @@ export const store$ = observable<Store>({
 	total: (): number => store$.todos.length,
 	completedCount: (): number =>
 		store$.todos.filter((todo) => todo.completed).length,
-	nextId: (): number => store$.todos.length + 1,
 	addTodo: (text: string) => {
+		const id = generatedId();
 		console.log('addTodo', text);
 		const newTodo: Todo = {
-			id: store$.nextId.get(),
+			id,
 			text,
 			completed: false,
 		};
+		console.log('newTodo', newTodo);
 		store$.todos.push(newTodo);
-		console.log(store$.todos.length);
+		console.log('todos', store$.todos);
 	},
 	toggleTodo: (id: number) => {},
 	removeTodo: (id: number) => {},
@@ -40,6 +42,8 @@ export const store$ = observable<Store>({
 		store$.todos.set([]);
 	},
 });
+
+const generatedId = () => uuidv4();
 
 syncObservable(store$, {
 	persist: {
