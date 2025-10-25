@@ -1,5 +1,5 @@
 import RoundedButton from '@components/RoundedButton';
-import TextTotal from '@components/TextTotal';
+import TodosList from '@components/TodosList';
 
 import { store$ } from '@lib/todo';
 import { StyleSheet, View } from 'react-native';
@@ -10,15 +10,18 @@ export default function TodosScreen() {
 		<View style={styles.container}>
 			<View style={styles.buttons}>
 				<RoundedButton
-					onPress={() => store$.addTodo('New Todo')}
-					iconName="add"
-				/>
-				<RoundedButton
 					onPress={() => store$.reset()}
 					iconName="trash"
 				/>
 			</View>
-			<TextTotal />
+			<TodosList />
+
+			<View style={styles.fabContainer}>
+				<RoundedButton
+					onPress={() => store$.addTodo('New Todo')}
+					iconName="add"
+				/>
+			</View>
 		</View>
 	);
 }
@@ -33,5 +36,21 @@ const styles = StyleSheet.create({
 	buttons: {
 		flexDirection: 'row',
 		gap: 10,
+	},
+	fabContainer: {
+		position: 'absolute',
+		right: 16,
+		bottom: 24, // augmenter si nécessaire pour le home indicator
+		// ombre Android/iOS
+		elevation: 6,
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 2 },
+		shadowOpacity: 0.3,
+		shadowRadius: 4,
+	},
+	button: {
+		backgroundColor: 'blue',
+		padding: 2,
+		borderRadius: 30,
 	},
 });
