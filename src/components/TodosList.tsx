@@ -6,10 +6,10 @@ export const TodosList = () => {
 	return (
 		<FlatList
 			data={store$.todos.get()}
-			keyExtractor={(item) => item.id}
-			renderItem={({ item }) => (
+			keyExtractor={(todo) => todo.id}
+			renderItem={({ item: todo }) => (
 				<View style={styles.item}>
-					<Text>{item.text}</Text>
+					<Text>{todo.text}</Text>
 				</View>
 			)}
 		/>
